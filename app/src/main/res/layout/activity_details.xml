@@ -14,13 +14,11 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_gravity="top|center_vertical"
+        android:layout_gravity="center_vertical"
         android:paddingTop="15dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        android:padding="2dp"
         android:id="@+id/ivBook_Details"/>
     <TextView
 
@@ -38,18 +36,22 @@
         android:textColor="@color/Orange"
         android:paddingTop="10dp"
         android:paddingLeft="15dp"
+        android:paddingBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title_details"
         android:textSize="20dp"/>
     <TextView
         android:id="@+id/description_details"
-        android:paddingTop="10dp"
+        android:paddingTop="15dp"
         android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/Blue"
         android:layout_below="@+id/subtitle_details"
+        android:justificationMode="inter_word"
         android:textSize="18dp"/>
 </RelativeLayout>
 </ScrollView>

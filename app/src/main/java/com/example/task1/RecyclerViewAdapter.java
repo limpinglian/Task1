@@ -22,13 +22,13 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final Context context;
-    private List<Book> BookList;
+    private List<Book> bookList;
 
     public RecyclerViewAdapter(Context context, List<Book> books) {
         this.context = context;
-        this.BookList = books;
-        if (BookList == null) {
-            BookList = new ArrayList<>();
+        this.bookList = books;
+        if (bookList == null) {
+            bookList = new ArrayList<>();
         }
     }
 
@@ -42,7 +42,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Book currentBook = BookList.get(position);
+        Book currentBook = bookList.get(position);
 
         final ViewHolder holder1 = (ViewHolder) holder;
         holder1.bindTo(currentBook);
@@ -51,7 +51,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public int getItemCount() {
-        return BookList.size();
+        return bookList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -83,17 +83,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         @Override
         public void onClick(View v) {
-            Book currentBook = BookList.get(getAdapterPosition());
+            Book currentBook = bookList.get(getAdapterPosition());
 
 
             Book book=new Book(currentBook.getTitle(),currentBook.getSubtitle(),currentBook.getDescription(),currentBook.getImageBook());
             Intent detailIntent = new Intent(context, DetailsActivity.class);
             detailIntent.putExtra("Book",book);
-          /*  detailIntent.putExtra("title", currentBook.getTitle());
-            detailIntent.putExtra("subtitle",currentBook.getSubtitle());
-            detailIntent.putExtra("description",currentBook.getDescription());
-            detailIntent.putExtra("image_resource",
-                    currentBook.getImageBook());*/
             context.startActivity(detailIntent);
 
         }

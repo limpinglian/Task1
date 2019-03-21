@@ -18,6 +18,8 @@
             android:layout_gravity="top"
             android:paddingBottom="15dp"
             android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
 
             />
 
@@ -31,6 +33,7 @@
             android:textColor="@color/DarkBlue"
             android:paddingTop="10dp"
             android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:textSize="20dp"
             android:textStyle="bold"
 
@@ -43,8 +46,10 @@
             android:layout_below="@id/tvTitle"
             android:textColor="@color/DarkOrange"
             android:layout_toRightOf="@id/ivImage"
-            android:paddingTop="15dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
             android:paddingLeft="10dp"
+            android:paddingBottom="10dp"
 
 
             />
@@ -57,8 +62,10 @@
             android:textColor="@color/Orange"
             android:ellipsize="end"
             android:maxLines="2"
-            android:paddingBottom="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:paddingLeft="10dp"
+            android:paddingRight="10dp"
 
             />
 
