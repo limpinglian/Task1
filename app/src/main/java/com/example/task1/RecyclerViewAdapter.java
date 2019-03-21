@@ -2,6 +2,11 @@ package com.example.task1;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -79,12 +84,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         @Override
         public void onClick(View v) {
             Book currentBook = BookList.get(getAdapterPosition());
+
+
+            Book book=new Book(currentBook.getTitle(),currentBook.getSubtitle(),currentBook.getDescription(),currentBook.getImageBook());
             Intent detailIntent = new Intent(context, DetailsActivity.class);
-            detailIntent.putExtra("title", currentBook.getTitle());
+            detailIntent.putExtra("Book",book);
+          /*  detailIntent.putExtra("title", currentBook.getTitle());
             detailIntent.putExtra("subtitle",currentBook.getSubtitle());
             detailIntent.putExtra("description",currentBook.getDescription());
             detailIntent.putExtra("image_resource",
-                    currentBook.getImageBook());
+                    currentBook.getImageBook());*/
             context.startActivity(detailIntent);
 
         }

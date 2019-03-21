@@ -23,11 +23,14 @@ public class DetailsActivity extends AppCompatActivity {
         TextView tvSubtitle=(TextView)findViewById(R.id.subtitle_details);
         TextView tvDescription=(TextView)findViewById(R.id.description_details);
 
-        Glide.with(this).load(getIntent().getIntExtra("image_resource",0))
+        Bundle data = getIntent().getExtras();
+        Book book = (Book) data.getParcelable("Book");
+
+       Glide.with(this).load(book.getImageBook())
                 .into(ivBook);
-        tvTitle.setText(getIntent().getStringExtra("title"));
-        tvSubtitle.setText(getIntent().getStringExtra("subtitle"));
-        tvDescription.setText(getIntent().getStringExtra("description"));
+        tvTitle.setText(book.getTitle());
+        tvSubtitle.setText(book.getSubtitle());
+        tvDescription.setText(book.getDescription());
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
