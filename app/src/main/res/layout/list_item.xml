@@ -13,8 +13,10 @@
             android:id="@+id/ivImage"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:layout_alignParentLeft="true"
+            android:adjustViewBounds="true"
             android:layout_gravity="top"
-            android:scaleType="fitXY"
+
             />
 
         <TextView
@@ -24,7 +26,10 @@
             android:layout_toRightOf="@id/ivImage"
             android:layout_toEndOf="@id/ivImage"
             android:layout_alignParentTop="true"
-            android:text="english"
+            android:textColor="@color/DarkBlue"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
 
             />
         <TextView
@@ -32,8 +37,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvTitle"
+            android:textColor="@color/DarkOrange"
             android:layout_toRightOf="@id/ivImage"
-            android:text="englishBook"
+            android:paddingTop="15dp"
+
 
             />
         <TextView
@@ -42,7 +49,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/ivImage"
             android:layout_alignParentLeft="true"
-            android:text="englishsdfsdfdsfdsfdsfsd"
+            android:textColor="@color/Orange"
+            android:ellipsize="end"
+            android:maxLines="2"
 
             />
 

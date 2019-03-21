@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         // Clear the existing data (to avoid duplication).
         mBookData.clear();
 
-        // Create the ArrayList of Sports objects with the titles and
+
 
         for (int i = 0; i < titleList.length; i++) {
             mBookData.add(new Book(titleList[i], subtitle[i],description[i],

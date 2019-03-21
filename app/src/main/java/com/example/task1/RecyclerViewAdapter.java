@@ -71,7 +71,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             subtitle.setText(currentBook.getSubtitle());
             desciption.setText(currentBook.getDescription());
 
-            // Load the images into the ImageView using the Glide library.
             Glide.with(context).load(
                     currentBook.getImageBook()).into(imageView);
         }
