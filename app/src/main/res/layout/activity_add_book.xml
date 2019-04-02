@@ -18,7 +18,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:hint="@string/title"
-        android:inputType="text" />
+        android:maxLines="1"
+        android:inputType="text"
+        android:singleLine="true"/>
 
     <EditText
         android:id="@+id/etSubtitle"
@@ -26,7 +28,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/etTitle"
         android:hint="@string/subtitle"
-        android:inputType="text" />
+        android:singleLine="false"
+        android:maxLines="3"
+        android:inputType="textMultiLine" />
 
     <EditText
         android:id="@+id/etDescription"

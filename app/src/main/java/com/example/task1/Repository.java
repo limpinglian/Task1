@@ -8,11 +8,11 @@ import android.os.AsyncTask;
 
 import java.util.List;
 
-public class Respiratory  {
+public class Repository {
     private DAO dao;
     private LiveData<List<Book>> allBooks;
 
-    Respiratory(Application application) {
+    Repository(Application application) {
         AppDatabase db=AppDatabase.getInstance(application);
         dao=db.dao();
         allBooks=dao.getAllBooks();

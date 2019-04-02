@@ -56,6 +56,15 @@ public class AddBookActivity extends AppCompatActivity {
             }
         });
 
+        etUrl.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    Picasso.get().load(etUrl.getText().toString()).into(ivPreview);
+                }
+            }
+        });
+
         etUrl.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -69,15 +78,16 @@ public class AddBookActivity extends AppCompatActivity {
                     Toast.makeText(AddBookActivity.this,"Url Not Matches",Toast.LENGTH_SHORT).show();
                     Picasso.get().load(R.drawable.broken).into(ivPreview);
 
-                }else{
-                    Picasso.get().load(etUrl.getText().toString()).into(ivPreview);
                 }
-            }
 
+                }
             @Override
             public void afterTextChanged(Editable s) {
 
             }
+
+
+
         });
 
 
