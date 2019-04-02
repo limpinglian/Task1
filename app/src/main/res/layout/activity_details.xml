@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="vertical"
-    tools:context=".DetailsActivity">
+    tools:context=".Activity.DetailsActivity">
 
 
-<RelativeLayout
+<ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:id="@+id/scroll"
+    android:scrollbars="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"
@@ -41,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/title_details"
         android:textSize="20dp"/>
+
     <TextView
         android:id="@+id/description_details"
         android:paddingTop="15dp"
@@ -53,5 +63,28 @@
         android:layout_below="@+id/subtitle_details"
         android:justificationMode="inter_word"
         android:textSize="18dp"/>
-</RelativeLayout>
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fabEdit"
+        android:paddingEnd="15dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        app:layout_anchorGravity="bottom|right|end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_edit"
+        android:layout_below="@id/description_details"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        />
+
+    </RelativeLayout>
+
 </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".Activity.AddBookActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:hint="@string/title"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etTitle"
+        android:hint="@string/subtitle"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etSubtitle"
+        android:hint="@string/description"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/etUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etDescription"
+        android:hint="@string/image"
+        android:inputType="text" />
+
+
+    <ImageView
+        android:id="@+id/ivPreviewImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/etUrl"
+        android:adjustViewBounds="true"
+        android:paddingBottom="15dp"
+        />
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivPreviewImage"
+        android:text="@string/add" />
+
+</RelativeLayout>
+
+</ScrollView>

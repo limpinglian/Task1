@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Task1</string>
+    <string name="title">Title</string>
+    <string name="subtitle">Subtitle</string>
+    <string name="description">Description</string>
+    <string name="image">Image</string>
+    <string name="add">ADD</string>
 
     <string-array name="titleList">
         <item>Chinese</item>

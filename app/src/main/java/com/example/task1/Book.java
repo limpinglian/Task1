@@ -1,17 +1,32 @@
 package com.example.task1;
 
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
+@Entity(tableName = "book_table")
 public class Book implements Parcelable {
-    private int imageBook;
+    private String imageBook;
+    @PrimaryKey(autoGenerate = true)
+    private int bookId;
     private String title;
     private String subtitle;
     private String description;
 
-    public Book( String title, String subtitle, String description,int imageBook) {
+    public Book( String title, String subtitle, String description,String imageBook) {
 
+        this.title = title;
+        this.subtitle = subtitle;
+        this.description = description;
+        this.imageBook = imageBook;
+    }
+    @Ignore
+    public Book(int bookId, String title, String subtitle, String description,String imageBook) {
+        this.bookId=bookId;
         this.title = title;
         this.subtitle = subtitle;
         this.description = description;
@@ -19,8 +34,11 @@ public class Book implements Parcelable {
     }
 
 
+
+
     protected Book(Parcel in) {
-        imageBook = in.readInt();
+        bookId=in.readInt();
+        imageBook = in.readString();
         title = in.readString();
         subtitle = in.readString();
         description = in.readString();
@@ -43,17 +61,25 @@ public class Book implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(imageBook);
+        dest.writeInt(bookId);
+        dest.writeString(imageBook);
         dest.writeString(title);
         dest.writeString(subtitle);
         dest.writeString(description);
     }
+    public int getBookId() {
+        return bookId;
+    }
 
-    public int getImageBook() {
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
+
+    public String getImageBook() {
         return imageBook;
     }
 
-    public void setImageBook(int imageBook) {
+    public void setImageBook(String imageBook) {
         this.imageBook = imageBook;
     }
 
@@ -81,6 +107,11 @@ public class Book implements Parcelable {
         this.description = description;
     }
 
+    public static Book[] populateData() {
+        return new Book[] {
+                new Book("English","I want to successful","orem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in placerat urna. Phasellus varius","http://images.amazon.com/images/P/0596004478.01._PE30_PI_SCMZZZZZZZ_.jpg")
 
+        };
+    }
 
 }

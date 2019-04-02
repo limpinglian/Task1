@@ -2,11 +2,6 @@ package com.example.task1;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,13 +11,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.task1.Activity.DetailsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final Context context;
-    private List<Book> bookList;
+    private List<Book> bookList=new ArrayList<>();
+
 
     public RecyclerViewAdapter(Context context, List<Book> books) {
         this.context = context;
@@ -30,6 +27,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (bookList == null) {
             bookList = new ArrayList<>();
         }
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -43,9 +41,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Book currentBook = bookList.get(position);
-
         final ViewHolder holder1 = (ViewHolder) holder;
-        holder1.bindTo(currentBook);
+
+        holder1.title.setText(currentBook.getTitle());
+        holder1.subtitle.setText(currentBook.getSubtitle());
+        holder1.desciption.setText(currentBook.getDescription());
+        if (currentBook.getImageBook() != null) {
+            Glide.with(context)
+                    .load(currentBook.getImageBook().replace("https", "http"))
+                    .asBitmap()
+                    .fitCenter()
+                    .into(((ViewHolder) holder).imageView);
+        }
 
     }
 
@@ -53,6 +60,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public int getItemCount() {
         return bookList.size();
     }
+
+public void setBook(List<Book>books){
+        this.bookList=books;
+        notifyDataSetChanged();
+}
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView title;
@@ -86,7 +98,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             Book currentBook = bookList.get(getAdapterPosition());
 
 
-            Book book=new Book(currentBook.getTitle(),currentBook.getSubtitle(),currentBook.getDescription(),currentBook.getImageBook());
+            Book book=new Book(currentBook.getBookId(),currentBook.getTitle(),currentBook.getSubtitle(),currentBook.getDescription(),currentBook.getImageBook());
             Intent detailIntent = new Intent(context, DetailsActivity.class);
             detailIntent.putExtra("Book",book);
             context.startActivity(detailIntent);
